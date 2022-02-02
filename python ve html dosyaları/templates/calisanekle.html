@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+
+
+<h3 style= "text-align: center;">Çalışan Ekle</h3>
+
+
+<div class="jumbotron">
+            <h3>Yeni Kullanıcı</h3>
+            <form action = "/calisanekle" method = "POST">
+    
+                Tc Kimlik Numarası<br>
+                <input type = "text" name = "tc" class="form-control"/><br>
+
+                İsim<br>
+                <input type = "text" name = "isim" class="form-control"/><br>
+ 
+                Soyisim<br>
+                <input type="text" name = "soyad" class="form-control"><br>
+ 
+                Kan Grubu<br>
+                <input type = "text" name = "kan_grubu" class="form-control"/><br>
+ 
+                Doğduğu Şehir<br>
+                <input type = "text" name = "dogdugu_sehir" class="form-control"/><br>
+ 
+                Pozisyon<br>
+                <input type = "text" name = "pozisyon" class="form-control"/><br> 
+
+                Maaş<br>
+                <input type = "text" name = "maas" class="form-control"/><br> 
+
+                Lisans<br>
+                <input type = "text" name = "lisans" class="form-control"/><br>
+                 
+                Yüksek lisans<br>
+                <input type = "text" name = "yuksek_lisans" class="form-control"/><br>
+
+                Doktora<br>
+                <input type = "text" name = "doktora" class="form-control"/><br>
+
+                Aşı Durumu<br>
+                <input type = "text" name = "asi_durumu" class="form-control"/><br>
+
+                <input type = "submit" value = "Ekle" class="btn btn-success"/><br>
+      </form>
+ 
+</div>
+
+
+
+
+
+
+{% endblock body %}
+
+
+
+

@@ -1,0 +1,168 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+
+
+<!---                       Aşı olmayıp korona olanlar                    --->
+
+<br>  
+<h3 style= "text-align: center;">Aşı Olmayıp Korona Olanların Listesi</h3>
+{% if asi_olmayan %}
+<table class="w3-table-all">
+    <thead>
+      <tr class="w3-red">
+        <th scope="col">TC Kimlik Numarası</th>
+        <th scope="col">İsim</th>
+        <th scope="col">Soyisim</th>
+        <th scope="col">Koronaya Yakalanma Tarihi</th>
+        <th scope="col">Korona Negatif Sonucunun Tarihi</th>
+        <th scope="col">Aşı ID</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for l in asi_olmayan %}
+      <tr>
+        <th scope="row">{{l.tc}}</th>
+        <td>{{l.isim}}</th>
+        <td>{{l.soyad}}</td>
+        <td>{{l.pozitif_tarihi}}</td>
+        <td>{{l.negatif_tarihi}}</td>
+        <td>{{l.asi_id}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table><br><br>  
+{% else %}
+<div class = "alert alert-danger">Henüz bu kısıma ait bilgi bulunmuyor...</div>
+{% endif %}
+
+
+
+<!---                   sinovac olup korona olmayanlar                     --->
+
+
+<h3 style= "text-align: center;">Sinovac Aşısı Olup Korona Olanların Listesi</h3>
+
+{% if sinovac %}
+<table class="w3-table-all">
+    <thead>
+      <tr>
+      <tr class="w3-red">
+        <th scope="col">TC Kimlik Numarası</th>
+        <th scope="col">İsim</th>
+        <th scope="col">Soyisim</th>
+        <th scope="col">Koronaya Yakalanma Tarihi</th>
+        <th scope="col">Korona Negatif Sonucunun Tarihi</th>
+        <th scope="col">Aşı ID</th>
+      </tr>
+      </tr>
+    </thead>
+    <tbody>
+      {% for l in sinovac %}
+      <tr>
+        <th scope="row">{{l.tc}}</th>
+        <td>{{l.isim}}</th>
+        <td>{{l.soyad}}</td>
+        <td>{{l.pozitif_tarihi}}</td>
+        <td>{{l.negatif_tarihi}}</td>
+        <td>{{l.asi_id}}</td>
+      </tr>
+      {% endfor %}
+      
+    </tbody>
+  </table><br><br>  
+
+{% else %}
+<div class = "alert alert-danger">Henüz bu kısıma ait bilgi bulunmuyor...</div>
+{% endif %}
+
+
+
+
+<!---                           biontech olup korona olanlar                      --->
+
+
+<h3 style= "text-align: center;">Biontech Aşısı Olup Korona Olanların Listesi</h3>
+
+{% if biontech %}
+<table class="w3-table-all">
+    <thead>
+      <tr>
+      <tr class="w3-red">
+        <th scope="col">TC Kimlik Numarası</th>
+        <th scope="col">İsim</th>
+        <th scope="col">Soyisim</th>
+        <th scope="col">Koronaya Yakalanma Tarihi</th>
+        <th scope="col">Korona Negatif Sonucunun Tarihi</th>
+        <th scope="col">Aşı ID</th>
+      </tr>
+      </tr>
+    </thead>
+    <tbody>
+      {% for l in biontech %}
+      <tr>
+        <th scope="row">{{l.tc}}</th>
+        <td>{{l.isim}}</th>
+        <td>{{l.soyad}}</td>
+        <td>{{l.pozitif_tarihi}}</td>
+        <td>{{l.negatif_tarihi}}</td>
+        <td>{{l.asi_id}}</td>
+      </tr>
+      {% endfor %}
+      
+    </tbody>
+  </table><br><br>  
+
+{% else %}
+<div class = "alert alert-danger">Henüz bu kısıma ait bilgi bulunmuyor...</div>
+{% endif %}
+
+
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawStuff);
+
+      function drawStuff() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Aşı Türü', 'Kişi Sayısı'],
+          ['Aşı Olmayan', {{bir}}],
+          ['Sinovac', {{iki}}],
+          ['Biontech', {{uc}}]
+        ]);
+
+        var options = {
+          width: 500,
+          legend: { position: 'none' },
+          chart: {
+            title: '',
+            subtitle: '' },
+          axes: {
+            x: {
+              0: { side: 'top'} // Top x-axis.
+            }
+          },
+          bar: { groupWidth: "35%" }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('top_x_div'));
+        // Convert the Classic options to Material options.
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      };
+    </script>
+ 
+    <div id="top_x_div" style="width: 400px; height: 500px;"></div>
+
+
+
+
+
+
+{% endblock body %}
+
+
+
+

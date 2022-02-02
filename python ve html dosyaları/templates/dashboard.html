@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<!-- resim ekleme ------------------------------>
+<style>
+body{
+    background-image:url(../static/images/dashboard.jpg);
+    background-size:cover;
+    
+
+}
+</style>
+<!-- resim ekleme ------------------------------>
+
+
+<h2>Kontrol Paneli</h2>
+<h6>Hoşgeldiniz, {{session["username"]}}</h6><hr>
+
+
+
+<div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action active text-center">Yapmak İstediğiniz İşlemi Seçiniz...</a>
+  <a href="/calisansil" class="list-group-item list-group-item-action text-center">Çalışanlar tablosu ve işlemleri...</a>
+  <a href="/covidtablosu" class="list-group-item list-group-item-action text-center">Covid olanlar tablosu ve işlemleri...</a>
+  <a href="/hastaliktablo" class="list-group-item list-group-item-action text-center">Hastalık tablosu ve işlemleri...</a>
+  <a href="/kronikgoruntule" class="list-group-item list-group-item-action text-center">Çalışanlara ait kronik hastalık tablosu ve işlemleri...</a>
+  <a href="/calismasuresigoruntule" class="list-group-item list-group-item-action text-center">Çalışanların çalışma programı ve işlemleri...</a>
+  <a href="/hobilertablosu" class="list-group-item list-group-item-action text-center">Hobiler tablosu ve işlemleri...</a>
+  <a href="/asitablosu" class="list-group-item list-group-item-action text-center">Aşı tablosunu görmek için tıklayınız</a>
+  <br><br> <div class="list-group text-center">
+  <a href="#" class="list-group-item list-group-item-action active">İSTATİSTİKLER</a>
+  <a href="/egitimcorona" class="list-group-item list-group-item-action">Eğitim seviyesi ile corona olma arasındaki ilişkileri görmek için tıklayınız</a>
+  <a href="/top3hastalik" class="list-group-item list-group-item-action">Elemanlar arasında görülen en yaygın üç hastalık türü ve o hastalığa sahip olan elemanların listesi</a>
+  <a href="/sehirhastalik" class="list-group-item list-group-item-action">İstenen şehirlerde görülen en yaygın 3 hastalık türünü görmek için tıklayınız</a>
+  <a href="/calisanilac" class="list-group-item list-group-item-action">En yaygın kullanılan ilk üç ilacı kullanan korona hastalarının listesini görmek için tıklayınız</a>
+  <a href="/covidilac" class="list-group-item list-group-item-action">Belirli ilacı kullanan çalışanların kovid geçirme durumlarını görmek için tıklayınız</a>
+  <a href="/asicovid" class="list-group-item list-group-item-action">Vurulan aşı türüne göre covid olanları görmek için tıklayınız</a>
+  <a href="/kronikcorona" class="list-group-item list-group-item-action">Belirli kronik hastalıklara göre corona olanların iyileşmesi için gereken süreyi görmek için tıklayınız</a>
+  <a href="/kangrubucovid" class="list-group-item list-group-item-action">Kan gruplarına göre covid olan bir kişinin tekrar negatif olması için gereken süreyi görmek için tıklayınız</a>
+  <a href="/top3belirti" class="list-group-item list-group-item-action">Corona olanlar arasında en sık görülen 3 belirtiyi görmek için tıklayınız</a>
+  <a href="/covidtemas" class="list-group-item list-group-item-action">Covid olanların ve olmayanların temas bilgilerini görmek için tıklayınız</a>
+  <a href="/asiturucovidatlatma" class="list-group-item list-group-item-action">Aşı türüne göre covid atlatma sürelerini görmek için tıklayınız</a>
+  <a href="/encokhastaolanson1aycovid" class="list-group-item list-group-item-action">En sık hasta olan 10 kişinin son 1 ay içerisinde covide yakalananlarını görmek için tıklayınız</a>
+  <a href="/biontechhastalik" class="list-group-item list-group-item-action">Biontech aşısı olan ve belirli bir hastalığı önceden geçirmiş olan çalışanlardan COVID'e yakalananların listesini görmek için tıklayınız</a>
+  <a href="/haftasonucorona" class="list-group-item list-group-item-action">Hafta sonu çalışıp korona olanları görmek için tıklayınız</a>
+
+</div>
+</div>
+<br><br><br>
+
+{% endblock body %}
+

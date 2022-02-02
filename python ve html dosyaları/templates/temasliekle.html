@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+
+
+<h3 style= "text-align: center;">Temaslı TC Ekle</h3>
+
+
+<div class="jumbotron">
+            
+            <form action = "/temasliekle" method = "POST">
+    
+                Covid Olmuş Çalışanın TC Kimlik Numarası<br>
+                <input type = "text" name = "tcno" class="form-control"/><br>
+
+                Covidlinin temas ettiği çalışanın TC Kimlik Numarası <br>
+                <input type = "text" name = "temasli" class="form-control"/><br>
+ 
+                <input type = "submit" value = "Ekle" class="btn btn-success"/><br>
+      </form>
+ 
+</div>
+
+
+
+
+
+
+{% endblock body %}
+
+
+
+

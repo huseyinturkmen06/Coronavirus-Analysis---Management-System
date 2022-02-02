@@ -1,0 +1,127 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+<!-- resim ekleme ------------------------------>
+<style>
+body{
+    background-image:url(../static/images/asituru.jpg);
+    background-size:cover;
+    
+
+}
+</style>
+<!-- resim ekleme ------------------------------>
+
+
+<form action="/asiturucovidatlatma" method="POST">
+
+
+
+
+<h3 style= "text-align: center;"> Aşı Olmayanların Koronayı Kaç Günde Atlattıkları Bilgisi</h3>
+{% if asisiz %}
+<table class="w3-table-all">
+    <thead>
+      <tr class="w3-red">
+        <th scope="col">Çalışan TC</th>
+        <th scope="col">Çalışanın İsmi</th>
+        <th scope="col">Çalışanın Soyismi</th>
+        <th scope="col">Kaç Günde Negatif Oldu?</th>
+        <th scope="col">Aşı ID</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+     {% for d in asisiz %} 
+      <tr>
+        <th scope="row">{{d.tc}}</th>
+        <td>{{d.isim}}</td>
+        <td>{{d.soyad}}</td>
+        <td>{{d.fark}}</td>
+        <td>{{d.asi_id}}</td>
+      </tr>
+      {% endfor %}
+      </tbody> 
+</table><br>
+
+{% else %}
+<div class = "alert alert-danger">Henüz bilgi bulunmuyor...</div>
+{% endif %}
+
+
+
+
+
+<h3 style= "text-align: center;"> Sinovac Aşısı Olanların Koronayı Kaç Günde Atlattıkları Bilgisi</h3>
+{% if sinovac %}
+<table class="w3-table-all">
+    <thead>
+      <tr class="w3-red">
+        <th scope="col">Çalışan TC</th>
+        <th scope="col">Çalışanın İsmi</th>
+        <th scope="col">Çalışanın Soyismi</th>
+        <th scope="col">Kaç Günde Negatif Oldu?</th>
+        <th scope="col">Aşı ID</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+     {% for d in sinovac %} 
+      <tr>
+        <th scope="row">{{d.tc}}</th>
+        <td>{{d.isim}}</td>
+        <td>{{d.soyad}}</td>
+        <td>{{d.fark}}</td>
+        <td>{{d.asi_id}}</td>
+      </tr>
+      {% endfor %}
+      </tbody> 
+</table><br>
+
+
+{% else %}
+<div class = "alert alert-danger">Henüz bilgi bulunmuyor...</div>
+{% endif %}
+
+
+
+
+<h3 style= "text-align: center;"> Biontech Aşısı Olanların Koronayı Kaç Günde Atlattıkları Bilgisi</h3>
+{% if biontech %}
+<table class="w3-table-all">
+    <thead>
+      <tr class="w3-red">
+        <th scope="col">Çalışan TC</th>
+        <th scope="col">Çalışanın İsmi</th>
+        <th scope="col">Çalışanın Soyismi</th>
+        <th scope="col">Kaç Günde Negatif Oldu?</th>
+        <th scope="col">Aşı ID</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+     {% for d in biontech %} 
+      <tr>
+        <th scope="row">{{d.tc}}</th>
+        <td>{{d.isim}}</td>
+        <td>{{d.soyad}}</td>
+        <td>{{d.fark}}</td>
+        <td>{{d.asi_id}}</td>
+      </tr>
+      {% endfor %}
+      </tbody> 
+</table><br>
+
+
+{% else %}
+<div class = "alert alert-danger">Henüz bilgi bulunmuyor...</div>
+{% endif %}
+
+<br>
+
+{% endblock body %}
+
+
+
+

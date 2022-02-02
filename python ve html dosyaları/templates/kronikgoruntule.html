@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+
+
+<h3 style= "text-align: center;">Kronik hastalık bilgisi ekle, sil ve güncelle</h3>
+<td><a href="/kronikekle" class = "button">Ekle</a></td><br><br>
+{% if kronik %}
+<table class="w3-table-all">
+    <thead>
+      <tr class="w3-red">
+        <th scope="col">ID</th>
+        <th scope="col">TC Kimlik Numarası</th>
+        <th scope="col">Kronik Hastalıklar</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for t in kronik %}
+      <tr>
+        <th scope="row">{{t.kronik_hastalik_id}}</th>
+        <td>{{t.tc}}</th>
+        <td>{{t.kronik_hastalik_ismi}}</th>
+        <td><a href="/kronikgoruntule/edit/{{t.kronik_hastalik_id}}" class = "btn btn-info">Güncelle</a></td>
+        <td><a href="/kronikgoruntule/delete/{{t.kronik_hastalik_id}}" class = "btn btn-danger">Sil</a></td>
+      </tr>
+      {% endfor %}
+      
+    </tbody>
+  </table>  
+{% else %}
+<div class = "alert alert-danger">Henüz kronik hastalık bulunmuyor...</div>
+{% endif %}
+
+
+
+
+
+
+
+
+{% endblock body %}
+
+
+
+

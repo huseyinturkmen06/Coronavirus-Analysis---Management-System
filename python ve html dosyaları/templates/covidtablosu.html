@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+<style>
+body{
+    background-image:url(../static/images/covid_tablosu.jpg);
+    background-size:cover;
+    
+
+      
+}
+</style>
+
+
+<h3>Covid Tablosu</h3><br>
+<!-- üst buton ---------------------------
+button classı layout.htmlden veri çekiyor
+--->
+<td><a href="/covidekle" class = "button">Covidli çalışan ekle</a></td>
+<td><a href="/belirtigoruntule" class = "button">Belirti görüntüle ve ekle</a></td>
+<td><a href="/temasligoruntule" class = "button">Temaslı Çalışan görüntüle ve ekle</a></td><br>
+<!-- üst buton ------------------------------>
+{% if covid_tablosu %}
+
+<br>
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Covid Id</th>
+        <th scope="col">Covidli Hasta Tc Kimlik No</th>
+        <th scope="col">Pozitif Olma Tarihi</th>
+        <th scope="col">Negatif Olma Tarihi</th>
+        <th scope="col">Aşı ID</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for covid in covid_tablosu %}
+      <tr>
+        <th scope="row">{{covid.covid_id}}</th>
+        <td>{{covid.tc}}</td>
+        <td>{{covid.pozitif_tarihi}}</td>
+        <td>{{covid.negatif_tarihi}}</td>
+        <td>{{covid.asi_id}}</td>
+        <td><a href="/covidguncelle/edit/{{covid.covid_id}}" class = "btn btn-primary">Güncelle</a></td>
+        <td><a href="/covidsil/delete/{{covid.covid_id}}" class = "btn btn-danger">Sil</a></td>
+        
+        
+      </tr>
+      {% endfor %}
+      
+    </tbody>
+  </table>  
+{% else %}
+<!--calisanlar tablosunda eleman bulamazsa-->
+<div class = "alert alert-danger">Henüz eleman bulunmuyor...</div>    <!--uyarı yazısı-->
+{% endif %}
+
+
+
+
+
+
+
+
+{% endblock body %}
+
+
+
+

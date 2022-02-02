@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+
+
+
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+      <div class="card card-body">
+        <form action="/covidguncelle/edit/{{covid.covid_id}}" method="POST">
+                Covidli Hasta Tc Kimlik Numarası<br>
+                <input type = "text" name = "tc" value="{{covid.tc}}" class="form-control"/><br>
+
+                Pozitif Olma Tarihi<br>
+                <input type = "date" name = "pozitif_tarihi" value="{{covid.pozitif_tarihi}}"  class="form-control"/><br>
+ 
+                Negatif Olma Tarihi<br>
+                <input type="date" name = "negatif_tarihi" value="{{covid.negatif_tarihi}}"  class="form-control"><br>
+ 
+
+                Olduğu Aşının Türü<br>
+                <input type = "text" name = "asi_id" value="{{covid.asi_id}}"  class="form-control"/><br> 
+               
+
+            <input type = "submit" value = "Güncelle" class="button"/><br>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+{% endblock body %}
+
+
+
+

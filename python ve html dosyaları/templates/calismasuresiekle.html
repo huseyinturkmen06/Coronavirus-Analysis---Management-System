@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+
+
+<h3 style= "text-align: center;">Çalışma Süresi Ekle</h3>
+
+
+<div class="jumbotron">
+            
+            <form action = "/calismasuresiekle" method = "POST">
+    
+                Tc Kimlik Numarası<br>
+                <input type = "text" name = "tc" class="form-control"/><br>
+
+                Hafta İçi Giriş<br>
+                <input type = "time" name = "haftaicigiris" class="form-control"/><br>
+
+                Hafta İçi Çıkış<br>
+                <input type = "time" name = "haftaicicikis" class="form-control"/><br>
+
+                Cumartesi Giriş<br>
+                <input type = "time" name = "cumartesigiris" class="form-control"/><br>
+
+                Cumartesi Çıkış<br>
+                <input type = "time" name = "cumartesicikis" class="form-control"/><br>
+
+                Pazar Giriş<br>
+                <input type = "time" name = "pazargiris" class="form-control"/><br>
+
+                Pazar Çıkış<br>
+                <input type = "time" name = "pazarcikis" class="form-control"/><br>
+ 
+                <input type = "submit" value = "Ekle" class="button"/><br>
+      </form>
+ 
+</div>
+
+
+
+
+
+
+{% endblock body %}
+
+
+
+

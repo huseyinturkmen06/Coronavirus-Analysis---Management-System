@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<h3>Çalışan Güncelle</h3>
+
+
+
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+      <div class="card card-body">
+        <form action="/calisanguncelle/edit/{{calisanlar.calisanlar_id}}" method="POST">
+                Tc Kimlik Numarası<br>
+                <input type = "text" name = "tc" value="{{calisanlar.tc}}" class="form-control"/><br>
+
+                İsim<br>
+                <input type = "text" name = "isim" value="{{calisanlar.isim}}"  class="form-control"/><br>
+ 
+                Soyisim<br>
+                <input type="text" name = "soyad" value="{{calisanlar.soyad}}"  class="form-control"><br>
+ 
+                Kan Grubu<br>
+                <input type = "text" name = "kan_grubu" value="{{calisanlar.kan_grubu}}"  class="form-control"/><br>
+ 
+                Doğduğu Şehir<br>
+                <input type = "text" name = "sehir" value="{{calisanlar.dogdugu_sehir}}"  class="form-control"/><br>
+ 
+                Pozisyon<br>
+                <input type = "text" name = "pozisyon" value="{{calisanlar.pozisyon}}"  class="form-control"/><br> 
+
+                Maaş<br>
+                <input type = "text" name = "maas" value="{{calisanlar.maas}}"  class="form-control"/><br> 
+
+                Lisans<br>
+                <input type = "text" name = "lisans" value="{{calisanlar.lisans}}"  class="form-control"/><br>
+                 
+                Yüksek lisans<br>
+                <input type = "text" name = "yuksek_lisans" value="{{calisanlar.yuksek_lisans}}"  class="form-control"/><br>
+
+                Doktora<br>
+                <input type = "text" name = "doktora" value="{{calisanlar.doktora}}"  class="form-control"/><br>
+
+                Aşı Türü<br>
+                <input type = "text" name = "asi_id" value="{{calisanlar.asi_id}}"  class="form-control"/><br>
+
+            <input type = "submit" value = "Güncelle" class="button"/><br>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+{% endblock body %}
+
+
+
+

@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+<style>
+body{
+    background-image:url(../static/images/encokhasta.jpg);
+    background-size:cover;
+    
+     
+}
+</style>
+
+
+<h3 style= "text-align: center;">En Çok Hasta Olan Çalışanlardan Son Bir Ay İçerisinde COVID Geçirenlerin Listesi</h3>
+
+{% if data %}
+<table class="w3-table-all">
+    <thead>
+      <tr class="w3-red">
+        <th scope="col">TC Kimlik Numarası</th>
+        <th scope="col">İsim</th>
+        <th scope="col">Soyisim</th>
+        <th scope="col">Yakalandığı Tarih</th>
+        <th scope="col">Negatif Olma Tarihi</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for c in data %}
+      <tr>
+        <th scope="row">{{c.tc}}</th>
+        <td>{{c.isim}}</th>
+        <td>{{c.soyad}}</th>
+        <td>{{c.pozitif_tarihi}}</th>
+        <td>{{c.negatif_tarihi}}</th>
+      </tr>
+      {% endfor %}
+      
+    </tbody>
+  </table>  
+{% else %}
+<div class = "alert alert-danger">Henüz bilgi bulunmuyor...</div>
+{% endif %}
+
+
+
+
+
+
+
+
+{% endblock body %}
+
+
+
+

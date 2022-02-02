@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+
+
+
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+      <div class="card card-body">
+        <form action="/hastalikguncelle/edit/{{hastaliklar.hastalik_id}}" method="POST">
+                Tc Kimlik Numarası<br>
+                <input type = "text" name = "tc" value="{{hastaliklar.tc}}" class="form-control"/><br>
+
+                Hastalık İsmi<br>
+                <input type = "text" name = "hastalik_adi" value="{{hastaliklar.hastalik_adi}}"  class="form-control"/><br>
+ 
+                Hastalık Tarihi<br>
+                <input type="date" name = "hastalik_tarihi" value="{{hastaliklar.hastalik_tarihi}}"  class="form-control"><br>
+ 
+                Kullanılan İlaç<br>
+                <input type = "text" name = "ilac" value="{{hastaliklar.ilac}}"  class="form-control"/><br>
+ 
+                İlacın Dozu<br>
+                <input type = "text" name = "doz" value="{{hastaliklar.doz}}"  class="form-control"/><br>
+ 
+                Görülen Semptomlar<br>
+                <input type = "text" name = "semptomlar" value="{{hastaliklar.semptomlar}}"  class="form-control"/><br> 
+
+                
+
+            <input type = "submit" value = "Güncelle" class="button"/><br>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+{% endblock body %}
+
+
+
+

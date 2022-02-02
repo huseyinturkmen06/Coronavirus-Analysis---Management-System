@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+<!-- resim ekleme ------------------------------>
+<style>
+body{
+    background-image:url(../static/images/sehirhastalik.jpg);
+    background-size:cover;
+    
+
+}
+</style>
+<!-- resim ekleme ------------------------------>
+
+
+<h3 style= "text-align: center;">Belirli Bir Şehirde Görülen En Yaygın 3 Hastalık </h3><br>
+
+
+<form action="/sehirhastalik" method="POST">
+<input type="text" name = "sehiradi" class="input-sm" maxlength="64" placeholder="Ara...">
+<button type="submit" class="btn btn-success">Ara</button>
+</form><br><br>
+
+
+{% if data %}
+<h3 style= "text-align: center;">{{sehiradi}} Şehrinde Görülen En Yaygın Hastalıkların Listesi</h3>
+<table class="w3-table-all"">
+    <thead>
+      <tr class="w3-red">
+        <th scope="col">Hastalık Adı</th>
+        <th scope="col">Bu hastalığa yakalanma sayısı</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+     {% for d in data %} 
+      <tr>
+        <th scope="row">{{d.hastalik_adi}}</th>
+        <td>{{d.hastaliklar}}</td>
+      </tr>
+      {% endfor %}
+      </tbody> 
+</table>
+
+
+
+{% else %}
+<div class = "alert alert-danger">Henüz bir veri girilmedi!</div>
+{% endif %}
+
+
+{% endblock body %}
+
+
+
+

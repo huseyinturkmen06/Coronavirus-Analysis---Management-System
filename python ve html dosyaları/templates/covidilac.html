@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+
+
+<h3 style= "text-align: center;">Belirli bir ilacın kullanımına göre korona olan çalışanların listesi</h3><br>
+
+
+<form action="/covidilac" method="POST">
+<input type="text" name = "ilacismi" class="input-sm" maxlength="64" placeholder="Ara...">
+<button type="submit" class="btn btn-danger">Ara</button>
+</form><br><br>
+
+
+{% if data %}
+<h3 style= "text-align: center;">{{ilacismi}} İlacını Kullanıp Korona Olan Çalışanların Listesi</h3>
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">TC Kimlik Numarası</th>
+        <th scope="col">Koronaya Yakalanma Tarihi</th>
+        <th scope="col">Korona Sonucunun Negatif Çıkma Tarihi</th>
+        <th scope="col">Kullandığı İlaç</th>
+
+      </tr>
+    </thead>
+    <tbody>
+    
+     {% for d in data %} 
+      <tr>
+        <th scope="row">{{d.tc}}</th>
+        <td>{{d.pozitif_tarihi}}</td>
+        <td>{{d.negatif_tarihi}}</td>
+        <td>{{d.ilac}}</td>
+      </tr>
+      {% endfor %}
+      </tbody> 
+</table>
+
+
+
+{% else %}
+<div class = "alert alert-danger">Henüz bir veri girilmedi!</div>
+{% endif %}
+
+
+{% endblock body %}
+
+
+
+

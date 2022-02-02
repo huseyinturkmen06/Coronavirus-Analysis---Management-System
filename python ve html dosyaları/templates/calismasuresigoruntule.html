@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+
+
+<h3>Çalışma Saati Tablosu</h3><br>
+<!-- resim ekleme ------------------------------>
+<style>
+body{
+    background-image:url(../static/images/calisma_programi.jpg);
+    background-size:cover;
+    
+
+}
+</style>
+<!-- resim ekleme ------------------------------>
+
+
+<!-- üst buton ------------------------------>
+<td><a href="/calismasuresiekle" class = "button">Çalışma saati ekle</a></td><br>
+
+<!-- üst buton ------------------------------>
+{% if calisma_tablo %}
+
+<br>
+<table class="w3-table-all">  
+      <tr class="w3-red">
+        <th scope="col">TC Kimlik Numarası</th>
+        <th scope="col">Hafta İçi Giriş</th>
+        <th scope="col">Hafta İçi Çıkış</th>
+        <th scope="col">Cumartesi Giriş</th>
+        <th scope="col">Cumartesi Çıkış</th>
+        <th scope="col">Pazar Giriş</th>
+        <th scope="col">Pazar Çıkış</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    <tbody>
+      {% for c in calisma_tablo %}
+      <tr>
+        <th scope="row">{{c.tc}}</th>
+        <td>{{c.haftaicigiris}}</td>
+        <td>{{c.haftaicicikis}}</td>
+        <td>{{c.cumartesigiris}}</td>
+        <td>{{c.cumartesicikis}}</td>
+        <td>{{c.pazargiris}}</td>
+        <td>{{c.pazarcikis}}</td>
+        <td><a href="/calismasuresi/edit/{{c.id}}" class = "btn btn-primary">Güncelle</a></td>
+        <td><a href="/calismasuresi/delete/{{c.id}}" class = "btn btn-danger">Sil</a></td>
+        
+        
+      </tr>
+      {% endfor %}
+      
+    </tbody>
+  </table>  
+{% else %}
+<!--calisanlar tablosunda eleman bulamazsa-->
+<div class = "alert alert-danger">Henüz bilgi bulunmuyor...</div>    <!--uyarı yazısı-->
+{% endif %}
+
+
+
+
+
+
+
+
+{% endblock body %}
+
+
+
+

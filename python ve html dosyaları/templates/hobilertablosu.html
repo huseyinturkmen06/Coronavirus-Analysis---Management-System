@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+
+<h3>Hobiler Tablosu</h3>
+
+<!-- resim ekleme ------------------------------>
+<style>
+body{
+    background-image:url(../static/images/hobi2.jpg);
+    background-size:cover;
+    
+
+}
+</style>
+<!-- resim ekleme ------------------------------>
+
+<br>
+<!-- üst buton ------------------------------>
+<td><a href="/hobiekle" class = "button">Ekle</a></td><br>
+<!-- üst buton ------------------------------>
+<br>
+
+{% if hobiler_tablosu %}
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Hobi ID</th>
+        <th scope="col">TC Kimlik Numarası</th>
+        <th scope="col">Hobi Adı</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      {% for hobi in hobiler_tablosu %}
+      <tr>
+        <th scope="row">{{hobi.hobi_id}}</th>
+        <td>{{hobi.tc}}</td>
+        <td>{{hobi.hobi_ismi}}</td>
+        <td><a href="/hobiguncelle/edit/{{hobi.hobi_id}}" class = "btn btn-primary">Güncelle</a></td>
+        <td><a href="/hobisil/delete/{{hobi.hobi_id}}" class = "btn btn-danger">Sil</a></td>
+        
+        
+      </tr>
+      {% endfor %}
+      
+    </tbody>
+  </table>  
+{% else %}
+<!--calisanlar tablosunda eleman bulamazsa-->
+<div class = "alert alert-danger">Henüz eleman bulunmuyor...</div>    <!--uyarı yazısı-->
+{% endif %}
+
+
+
+
+
+
+
+
+{% endblock body %}
+
+
+
+

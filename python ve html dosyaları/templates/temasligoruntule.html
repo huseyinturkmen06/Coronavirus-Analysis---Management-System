@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+
+
+<h3 style= "text-align: center;">Temaslı çalışan bilgisi ekle, sil ve güncelle</h3>
+<td><a href="/temasliekle" class = "button">Ekle</a></td><br><br>
+{% if temasli %}
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Koronalı Kişinin TC Kimlik Numarası</th>
+        <th scope="col">Temaslı Ettiği Kişinin TC Kimlik Numarası</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for t in temasli %}
+      <tr>
+        <th scope="row">{{t.temasli_id}}</th>
+        <td>{{t.tc}}</th>
+        <td>{{t.temasli_tc}}</th>
+        <td><a href="/temasligoruntule/edit/{{t.temasli_id}}" class = "btn btn-info">Güncelle</a></td>
+        <td><a href="/temasligoruntule/delete/{{t.temasli_id}}" class = "btn btn-danger">Sil</a></td>
+      </tr>
+      {% endfor %}
+      
+    </tbody>
+  </table>  
+{% else %}
+<div class = "alert alert-danger">Henüz temaslı bulunmuyor...</div>
+{% endif %}
+
+
+
+
+
+
+
+
+{% endblock body %}
+
+
+
+

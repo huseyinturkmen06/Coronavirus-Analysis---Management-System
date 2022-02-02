@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+<!-- resim ekleme ------------------------------>
+<style>
+body{
+    background-image:url(../static/images/covidtemas.jpg);
+    background-size:cover;
+    
+
+}
+</style>
+<!-- resim ekleme ------------------------------>
+
+<!---                       A-                   --->
+
+<br>  
+
+<h3 style= "text-align: center;">Diğer çalışanlara en çok temas eden  3 covidli</h3>
+{% if data %}
+<table class="w3-table-all">
+    <thead>
+      <tr class="w3-red">
+        <th scope="col">TC Kimlik Numarası</th>
+        <th scope="col">İsim</th>
+        <th scope="col">Soyisim</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for l in data %}
+      <tr>
+        <th scope="row">{{l.tc}}</th>
+        <td>{{l.isim}}</th>
+        <td>{{l.soyad}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table><br><br>  
+{% else %}
+<div class = "alert alert-danger">Henüz bu kısıma ait bilgi bulunmuyor...</div>
+{% endif %}
+
+
+
+
+
+
+
+<h3 style= "text-align: center;">Covidlilere en çok temas eden 3 çalışan</h3>
+{% if data2 %}
+<table class="w3-table-all">
+    <thead>
+      <tr class="w3-red">
+        <th scope="col">TC Kimlik Numarası</th>
+        <th scope="col">İsim</th>
+        <th scope="col">Soyisim</th>  
+      </tr>
+    </thead>
+    <tbody>
+      {% for l in data2 %}
+      <tr>
+        <th scope="row">{{l.temas_eden_tc}}</th>
+        <td>{{l.isim}}</th>
+        <td>{{l.soyad}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table><br><br>  
+{% else %}
+<div class = "alert alert-danger">Henüz bu kısıma ait bilgi bulunmuyor...</div>
+{% endif %}
+
+
+
+
+
+
+
+{% endblock body %}
+
+
+
+

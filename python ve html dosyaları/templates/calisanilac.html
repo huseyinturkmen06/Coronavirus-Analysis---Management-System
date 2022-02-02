@@ -1,0 +1,193 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+
+
+
+<h3 style= "text-align: center;">En Çok Kullanılan İlk 3 İlaç ve O İlaçları Kullanan Çalışanların Listesi</h3><br>
+
+
+<form action="/calisanilac" method="POST">
+
+{% if data %}
+
+<table class="w3-table-all">
+    <thead>
+      <tr class="w3-green">
+        <th scope="col">İlaç Adı</th>
+        <th scope="col">İlacın Kullanma Sayısı</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+      <tr>
+        <td>{{data[0].ilac}}</td>
+        <td>{{data[0].adet_sayisi}}</td>
+      </tr>
+
+      <tr>
+        <td>{{data[1].ilac}}</td>
+        <td>{{data[1].adet_sayisi}}</td>
+      </tr>
+
+      <tr>
+        <td>{{data[2].ilac}}</td>
+        <td>{{data[2].adet_sayisi}}</td>
+      </tr>
+      </tbody> 
+</table><br>
+
+<br><br>
+
+
+
+<h3 style= "text-align: center;">{{data[0].ilac}} İlacını Kullanıp Korona Olan Çalışanların Listesi</h3>
+<table class="w3-table-all">
+    <thead>
+      <tr class="w3-red">
+        <th scope="col">Eleman Tc</th>
+        <th scope="col">Eleman İsim</th>
+        <th scope="col">Eleman Soyisim</th>
+        <th scope="col">Koronaya Yakalanma Tarihi</th>
+        <th scope="col">Korona Sonucunun Negatif Çıkma Tarihi </th>
+        <th scope="col">Kullandığı İlaç</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+     {% for d0 in data0 %} 
+      <tr>
+        <th scope="row">{{d0.tc}}</th>
+        <td>{{d0.isim}}</td>
+        <td>{{d0.soyad}}</td>
+        <td>{{d0.pozitif_tarihi}}</td>
+        <td>{{d0.negatif_tarihi}}</td>
+        <td>{{d0.ilac}}</td>
+      </tr>
+      {% endfor %}
+      </tbody> 
+</table>
+
+<br><br>
+
+
+
+
+<h3 style= "text-align: center;"> {{data[1].ilac}} İlacını Kullanıp Korona Olan Çalışanların Listesi</h3>
+<table class="w3-table-all">
+    <thead>
+      <tr class="w3-red">
+        <th scope="col">Eleman Tc</th>
+        <th scope="col">Eleman İsim</th>
+        <th scope="col">Eleman Soyisim</th>
+        <th scope="col">Koronaya Yakalanma Tarihi</th>
+        <th scope="col">Korona Sonucunun Negatif Çıkma Tarihi </th>
+        <th scope="col">Kullandığı İlaç</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+     {% for d1 in data1 %} 
+      <tr>
+        <th scope="row">{{d1.tc}}</th>
+        <td>{{d1.isim}}</td>
+        <td>{{d1.soyad}}</td>
+        <td>{{d1.pozitif_tarihi}}</td>
+        <td>{{d1.negatif_tarihi}}</td>
+        <td>{{d1.ilac}}</td>
+      </tr>
+      {% endfor %}
+      </tbody> 
+</table>
+
+<br><br>
+
+
+
+<h3 style= "text-align: center;">{{data[2].ilac}} İlacını Kullanıp Korona Olan Çalışanların Listesi</h3>
+<table class="w3-table-all">
+    <thead>
+      <tr class="w3-red">
+        <th scope="col">Eleman Tc</th>
+        <th scope="col">Eleman İsim</th>
+        <th scope="col">Eleman Soyisim</th>
+        <th scope="col">Koronaya Yakalanma Tarihi</th>
+        <th scope="col">Korona Sonucunun Negatif Çıkma Tarihi </th>
+        <th scope="col">Kullandığı İlaç</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+     {% for d2 in data2 %} 
+      <tr>
+        <th scope="row">{{d2.tc}}</th>
+        <td>{{d2.isim}}</td>
+        <td>{{d2.soyad}}</td>
+        <td>{{d2.pozitif_tarihi}}</td>
+        <td>{{d2.negatif_tarihi}}</td>
+        <td>{{d2.ilac}}</td>
+      </tr>
+      {% endfor %}
+      </tbody> 
+</table>
+
+
+</div>
+  </form>
+<br><br>
+{% else %}
+<br><br>
+<div class = "alert alert-danger">Henüz bilgi bulunmuyor...</div>
+{% endif %}
+
+
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawStuff);
+
+      function drawStuff() {
+        var data = new google.visualization.arrayToDataTable([
+          ['İlaç Adı', 'Kişi Sayısı'],
+          ['{{data[0].ilac}}', {{bir}}],
+          ['{{data[1].ilac}}', {{iki}}],
+          ['{{data[2].ilac}}', {{uc}}]
+        ]);
+
+        var options = {
+          width: 500,
+          legend: { position: 'none' },
+          chart: {
+            title: '',
+            subtitle: '' },
+          axes: {
+            x: {
+              0: { side: 'top'} // Top x-axis.
+            }
+          },
+          bar: { groupWidth: "35%" }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('top_x_div'));
+        // Convert the Classic options to Material options.
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      };
+    </script>
+ 
+    <div id="top_x_div" style="width: 400px; height: 500px;"></div>
+
+
+
+
+
+
+
+
+{% endblock body %}
+
+
+
+

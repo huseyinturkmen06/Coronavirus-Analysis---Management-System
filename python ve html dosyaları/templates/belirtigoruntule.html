@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+
+
+<h3 style= "text-align: center;">Belirti bilgisi ekle, sil ve güncelle</h3>
+<td><a href="/belirtiekle" class = "button">Ekle</a></td><br><br>
+{% if belirti %}
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">TC Kimlik Numarası</th>
+        <th scope="col">Belirti</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for t in belirti %}
+      <tr>
+        <th scope="row">{{t.belirti_id}}</th>
+        <td>{{t.tc}}</th>
+        <td>{{t.belirti_ismi}}</th>
+        <td><a href="/belirtigoruntule/edit/{{t.belirti_id}}" class = "btn btn-info">Güncelle</a></td>
+        <td><a href="/belirtigoruntule/delete/{{t.belirti_id}}" class = "btn btn-danger">Sil</a></td>
+      </tr>
+      {% endfor %}
+      
+    </tbody>
+  </table>  
+{% else %}
+<div class = "alert alert-danger">Henüz belirti bulunmuyor...</div>
+{% endif %}
+
+
+
+
+
+
+
+
+{% endblock body %}
+
+
+
+

@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+<style>
+body{
+    background-image:url(../static/images/hastalik2.jpg);
+    background-size:cover;
+    
+
+      
+}
+</style>
+
+
+<h3>Hastalık Tablosu</h3>
+
+<br>
+<!-- üst buton ------------------------------>
+<td><a href="/hastalikekle" class = "button">Ekle</a></td><br>
+<!-- üst buton ------------------------------>
+<br>
+
+{% if hastalik_tablo %}
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Hastalık Id</th>
+        <th scope="col">Hasta TC Kimlik Numarası</th>
+        <th scope="col">Hastalık Adı</th>
+        <th scope="col">Hastalık Tarihi</th>
+        <th scope="col">Kullanılan İlaç</th>
+        <th scope="col">İlacın Dozu</th>
+        <th scope="col">Semptomlar</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      {% for hastalik in hastalik_tablo %}
+      <tr>
+        <th scope="row">{{hastalik.hastalik_id}}</th>
+        <td>{{hastalik.tc}}</td>
+        <td>{{hastalik.hastalik_adi}}</td>
+        <td>{{hastalik.hastalik_tarihi}}</td>
+        <td>{{hastalik.ilac}}</td>
+        <td>{{hastalik.doz}}</td>
+        <td>{{hastalik.semptomlar}}</td>
+        <td><a href="/hastalikguncelle/edit/{{hastalik.hastalik_id}}" class = "btn btn-primary">Güncelle</a></td>
+        <td><a href="/hastaliksil/delete/{{hastalik.hastalik_id}}" class = "btn btn-danger">Sil</a></td>
+        
+        
+      </tr>
+      {% endfor %}
+      
+    </tbody>
+  </table>  
+{% else %}
+<!--calisanlar tablosunda eleman bulamazsa-->
+<div class = "alert alert-danger">Henüz eleman bulunmuyor...</div>    <!--uyarı yazısı-->
+{% endif %}
+
+
+
+
+
+
+
+
+{% endblock body %}
+
+
+
+

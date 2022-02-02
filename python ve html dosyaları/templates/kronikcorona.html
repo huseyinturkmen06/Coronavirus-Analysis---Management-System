@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+<!-- resim ekleme ------------------------------>
+<style>
+body{
+    background-image:url(../static/images/kronikcorona.jpg);
+    background-size:cover;
+    
+
+}
+</style>
+<!-- resim ekleme ------------------------------>
+
+
+<h3 style= "text-align: center;">Belirli Bir Kronik Hastalığa Göre Korona Olan Çalışanların Koronayı Atlatma Süresi</h3><br>
+
+
+<form action="/kronikcorona" method="POST">
+<input type="text" name = "hastalikadi" class="input-sm" maxlength="64" placeholder="Kronik Hastalık Giriniz">
+<button type="submit" class="btn btn-danger">Ara</button>
+</form><br><br>
+
+
+{% if data %}
+<h3 style= "text-align: center;">{{hastalikadi}} İsimli Kronik Hastalığa Sahip Çalışanların Korona Testinin Negatife Dönmesi İçin Geçen Süre</h3>
+<table class="w3-table-all">
+    <thead>
+      <tr class="w3-red">
+        <th scope="col">TC Kimlik Numarası</th>
+        <th scope="col">Pozitif Tarihi</th>
+        <th scope="col">Negatif Tarihi</th>
+        <th scope="col">Geçen Süre</th>
+        <th scope="col">Kronik Hastalığı</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+     {% for d in data %} 
+      <tr>
+        <th scope="row">{{d.tc}}</th>
+        <td>{{d.pozitif_tarihi}}</td>
+        <td>{{d.negatif_tarihi}}</td>
+        <td>{{d.gecen_sure}}</td>
+        <td>{{d.kronik_hastalik_ismi}}</td>
+      </tr>
+      {% endfor %}
+      </tbody> 
+</table>
+
+
+
+{% else %}
+<div class = "alert alert-danger">Henüz bir veri girilmedi!</div>
+{% endif %}
+
+
+{% endblock body %}
+
+
+
+

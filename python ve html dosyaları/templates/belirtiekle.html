@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+
+
+<h3 style= "text-align: center;">Belirti Ekle</h3>
+
+
+<div class="jumbotron">
+            
+            <form action = "/belirtiekle" method = "POST">
+    
+                Tc Kimlik Numarası<br>
+                <input type = "text" name = "tcno" class="form-control"/><br>
+
+                Belirti<br>
+                <input type = "text" name = "belirti" class="form-control"/><br>
+ 
+                <input type = "submit" value = "Ekle" class="btn btn-success"/><br>
+      </form>
+ 
+</div>
+
+
+
+
+
+
+{% endblock body %}
+
+
+
+

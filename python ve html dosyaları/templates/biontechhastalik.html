@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+<!-- resim ekleme ------------------------------>
+<style>
+body{
+    background-image:url(../static/images/biontech.jpg);
+    background-size:cover;
+    
+
+}
+</style>
+<!-- resim ekleme ------------------------------>
+
+
+<h3 style= "text-align: center;">Biontech Aşısı Olan ve Belirli Bir Hastalığı Önceden Geçirmiş Olan Çalışanlardan COVID'e Yakalananların Listesi</h3><br>
+<br>    
+
+<form action="http://127.0.0.1:5000/biontechhastalik" method="POST">
+<input type="text" name = "hastalikadi" class="form-control" maxlength="64" placeholder="Hastalık adı giriniz"><br>
+<button type="submit" class="btn btn-danger ">Ara</button>
+</form>
+
+
+{% if data %}
+<h3 style= "text-align: center;">{{hastalikadi}} Hastalığına Sahip ve Korona Olmuş Çalışanların Listesi</h3><br>
+<table class="w3-table-all">
+    <thead>
+      <tr class="w3-red">
+        <th scope="col">TC Kimlik Numarası</th>
+        <th scope="col">İsim</th>
+        <th scope="col">Soyisim</th>
+        <th scope="col">Yakalandığı Tarih</th>
+        <th scope="col">Negatif Tarihi</th>
+        <th scope="col">Hastalık Adı</th>
+        <th scope="col">Aşı ID</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+     {% for d in data %} 
+      <tr>
+        <th scope="row">{{d.tc}}</th>
+        <td>{{d.isim}}</td>
+        <td>{{d.soyad}}</td>
+        <td>{{d.pozitif_tarihi}}</td>
+        <td>{{d.negatif_tarihi}}</td>
+        <td>{{d.hastalik_adi}}</td>
+        <td>{{d.asi_id}}</td>
+      </tr>
+      {% endfor %}
+      </tbody> 
+</table>
+
+
+
+{% else %}
+<div class = "alert alert-danger">Henüz bir veri girilmedi!</div>
+{% endif %}
+
+
+{% endblock body %}
+
+

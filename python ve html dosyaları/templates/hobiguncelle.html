@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+
+
+
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+      <div class="card card-body">
+        <form action="/hobiguncelle/edit/{{hobi.hobi_id}}" method="POST">
+                Hobi ID<br>
+                <input type="text" name = "hobi_id" value="{{hobi.hobi_id}}"  class="form-control" disabled><br>
+
+                Tc Kimlik Numarası<br>
+                <input type = "text" name = "tc" value="{{hobi.tc}}" class="form-control"/><br>
+
+                Hobi İsmi<br>
+                <input type = "text" name = "hobi_ismi" value="{{hobi.hobi_ismi}}"  class="form-control"/><br>
+ 
+
+            <input type = "submit" value = "Güncelle" class="button"/><br>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+{% endblock body %}
+
+
+
+

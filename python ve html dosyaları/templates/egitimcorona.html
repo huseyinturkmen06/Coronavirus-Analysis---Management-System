@@ -1,0 +1,201 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+
+
+
+
+
+<!---                       Korona ve Lisans                    --->
+
+<br>  
+<h3 style= "text-align: center;">Korona Olan ve Lisans Eğitimini Tamamlamış Çalışanların Listesi</h3>
+{% if lisans %}
+<table class="w3-table-all">
+    <thead>
+      <tr class="w3-red">
+        <th scope="col">ID</th>
+        <th scope="col">TC Kimlik Numarası</th>
+        <th scope="col">İsim</th>
+        <th scope="col">Soyisim</th>
+        <th scope="col">Kan Grubu</th>
+        <th scope="col">Doğum Yeri</th>
+        <th scope="col">Pozisyon</th>
+        <th scope="col">Maaş</th>
+        <th scope="col">Lisans</th>
+        <th scope="col">Yüksek Lisans</th>
+        <th scope="col">Doktora</th>
+        <th scope="col">Aşı ID</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for l in lisans %}
+      <tr>
+        <th scope="row">{{l.calisanlar_id}}</th>
+        <td>{{l.tc}}</th>
+        <td>{{l.isim}}</th>
+        <td>{{l.soyad}}</td>
+        <td>{{l.kan_grubu}}</td>
+        <td>{{l.dogdugu_sehir}}</td>
+        <td>{{l.pozisyon}}</td>
+        <td>{{l.maas}}</td>
+        <td>{{l.lisans}}</td>
+        <td>{{l.yuksek_lisans}}</td>
+        <td>{{l.doktora}}</td>
+        <td>{{l.asi_id}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table><br><br>  
+{% else %}
+<div class = "alert alert-danger">Henüz çalışanlara ait bilgi bulunmuyor...</div>
+{% endif %}
+
+
+
+<!---                   Korona ve Yüksek Lisans                     --->
+
+
+<h3 style= "text-align: center;">Korona Olan ve Yüksek Lisans Eğitimini Tamamlamış Çalışanların Listesi</h3>
+
+{% if ylisans %}
+<table class="w3-table-all">
+    <thead>
+      <tr class="w3-red">
+        <th scope="col">ID</th>
+        <th scope="col">TC Kimlik Numarası</th>
+        <th scope="col">İsim</th>
+        <th scope="col">Soyisim</th>
+        <th scope="col">Kan Grubu</th>
+        <th scope="col">Doğum Yeri</th>
+        <th scope="col">Pozisyon</th>
+        <th scope="col">Maaş</th>
+        <th scope="col">Lisans</th>
+        <th scope="col">Yüksek Lisans</th>
+        <th scope="col">Doktora</th>
+        <th scope="col">Aşı ID</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for yl in ylisans %}
+      <tr>
+        <th scope="row">{{yl.calisanlar_id}}</th>
+        <td>{{yl.tc}}</th>
+        <td>{{yl.isim}}</th>
+        <td>{{yl.soyad}}</td>
+        <td>{{yl.kan_grubu}}</td>
+        <td>{{yl.dogdugu_sehir}}</td>
+        <td>{{yl.pozisyon}}</td>
+        <td>{{yl.maas}}</td>
+        <td>{{yl.lisans}}</td>
+        <td>{{yl.yuksek_lisans}}</td>
+        <td>{{yl.doktora}}</td>
+        <td>{{yl.asi_id}}</td>
+      </tr>
+      {% endfor %}
+      
+    </tbody>
+  </table><br><br>  
+
+{% else %}
+<div class = "alert alert-danger">Henüz çalışanlara ait bilgi bulunmuyor...</div>
+{% endif %}
+
+
+
+
+<!---                           Korona ve Doktora                       --->
+
+
+<h3 style= "text-align: center;">Korona Olan ve Doktora Eğitimini Tamamlamış Çalışanların Listesi</h3>
+
+{% if doktora %}
+<table class="w3-table-all">
+    <thead>
+      <tr class="w3-red">
+        <th scope="col">ID</th>
+        <th scope="col">TC Kimlik Numarası</th>
+        <th scope="col">İsim</th>
+        <th scope="col">Soyisim</th>
+        <th scope="col">Kan Grubu</th>
+        <th scope="col">Doğum Yeri</th>
+        <th scope="col">Pozisyon</th>
+        <th scope="col">Maaş</th>
+        <th scope="col">Lisans</th>
+        <th scope="col">Yüksek Lisans</th>
+        <th scope="col">Doktora</th>
+        <th scope="col">Aşı ID</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for d in doktora %}
+      <tr>
+        <th scope="row">{{d.calisanlar_id}}</th>
+        <td>{{d.tc}}</th>
+        <td>{{d.isim}}</th>
+        <td>{{d.soyad}}</td>
+        <td>{{d.kan_grubu}}</td>
+        <td>{{d.dogdugu_sehir}}</td>
+        <td>{{d.pozisyon}}</td>
+        <td>{{d.maas}}</td>
+        <td>{{d.lisans}}</td>
+        <td>{{d.yuksek_lisans}}</td>
+        <td>{{d.doktora}}</td>
+        <td>{{d.asi_id}}</td>
+      </tr>
+      {% endfor %}
+      
+    </tbody>
+  </table><br><br>  
+
+{% else %}
+<div class = "alert alert-danger">Henüz çalışanlara ait bilgi bulunmuyor...</div>
+{% endif %}
+
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawStuff);
+
+      function drawStuff() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Eğitim Seviyesi', 'Kişi Sayısı'],
+          ['Lisans', {{lisansadet}}],
+          ['Yüksek Lisans', {{ylisansadet}}],
+          ['Doktora', {{doktoraadet}}]
+        ]);
+
+        var options = {
+          width: 500,
+          legend: { position: 'none' },
+          chart: {
+            title: '',
+            subtitle: '' },
+          axes: {
+            x: {
+              0: { side: 'top'} // Top x-axis.
+            }
+          },
+          bar: { groupWidth: "35%" }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('top_x_div'));
+        // Convert the Classic options to Material options.
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      };
+    </script>
+ 
+    <div id="top_x_div" style="width: 400px; height: 500px;"></div>
+
+
+
+
+
+{% endblock body %}
+
+
+
+

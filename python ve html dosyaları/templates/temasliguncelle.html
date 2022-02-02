@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+      <div class="card card-body">
+        <form action="/temasligoruntule/edit/{{temasli.temasli_id}}}" method="POST">
+
+                ID<br>
+                <input type = "text" name = "id" value="{{temasli.temasli_id}}" class="form-control" disabled/><br>  
+          
+                Tc Kimlik Numarası<br>
+                <input type = "text" name = "tcno" value="{{temasli.tc}}" class="form-control"/><br>
+ 
+                Temaslı Çalışanın TC'si<br>
+                <input type = "text" name = "temasli" value="{{temasli.temasli_tc}}"  class="form-control"/><br>   
+
+            <input type = "submit" value = "Güncelle" class="btn btn-success"/><br>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+{% endblock body %}
+
+
+
+

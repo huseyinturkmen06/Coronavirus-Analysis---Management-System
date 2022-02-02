@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+<!-- resim ekleme ------------------------------>
+<style>
+body{
+    background-image:url(../static/images/asii.jpg);
+    background-size:cover;
+    
+
+}
+</style>
+<!-- resim ekleme ------------------------------>
+
+<h3>Covid Olan Kişi Ekleme Sayfası</h3>
+
+
+<div class="jumbotron">
+            <h3>Yeni Covid Kaydı</h3>
+            <form action = "/covidekle" method = "POST">
+    
+                Tc Kimlik Numarası<br>
+                <input type = "text" name = "tc" class="form-control"/><br>
+
+                Pozitif Olma Tarihi<br>
+                <input type = "date" name = "pozitif_tarihi" class="form-control"/><br>
+ 
+                Negatif Olma Tarihi<br>
+                <input type="date" name = "negatif_tarihi" class="form-control"><br>
+ 
+                Aşı ID<br>
+                <input type = "text" name = "asi_id" class="form-control"/><br>
+
+ 
+                
+
+                <input type = "submit" value = "Ekle" class="button"/><br>
+      </form>
+ 
+</div>
+
+
+
+
+
+
+{% endblock body %}
+
+
+
+

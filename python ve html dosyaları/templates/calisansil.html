@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+
+
+<!-- resim ekleme ------------------------------>
+<style>
+body{
+    background-image:url(../static/images/calisanlar6.jpg);
+    background-size:cover;
+}
+</style>
+<!-- resim ekleme ------------------------------>
+<style>
+.button {
+  display: inline-block;
+  padding: 5px 25px;
+  font-size: 18px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+</style>
+
+
+<h3>Çalışan Silme ve Güncelleme Sayfası</h3>
+
+<br>
+<!-- üst buton ------------------------------>
+<td><a href="/calisanekle" class = "button">Ekle</a></td><br>
+<!-- üst buton ------------------------------>
+<br>
+
+{% if calisanlar %}
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Çalışan TC</th>
+        <th scope="col">Çalışan İsmi</th>
+        <th scope="col">Çalışan Soyad</th>
+        <th scope="col">Kan Grubu</th>
+        <th scope="col">Doğduğu Şehir</th>
+        <th scope="col">Pozisyon</th>
+        <th scope="col">Maaş</th>
+        <th scope="col">Aşı Durumu</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for calisan in calisanlar %}
+      <tr>
+        <th scope="row">{{calisan.tc}}</th>    <!--scope="row" burada kalın yazmayı sağlar-->
+        <td>{{calisan.isim}}</td>
+        <td>{{calisan.soyad}}</td>
+        <td>{{calisan.kan_grubu}}</td>
+        <td>{{calisan.dogdugu_sehir}}</td>
+        <td>{{calisan.pozisyon}}</td>
+        <td>{{calisan.maas}}</td>
+        <td>{{calisan.asi_id}}</td>
+        <td><a href="/calisanguncelle/edit/{{calisan.calisanlar_id}}" class = "btn btn-primary">Güncelle</a></td>
+        <td><a href="/calisansil/delete/{{calisan.calisanlar_id}}" class = "btn btn-danger">Sil</a></td>
+      </tr>
+      {% endfor %}
+      
+    </tbody>
+  </table>  
+{% else %}
+<div class = "alert alert-danger">Henüz eleman bulunmuyor...</div>
+{% endif %}
+
+
+
+
+
+
+
+
+{% endblock body %}
+
+
+
+

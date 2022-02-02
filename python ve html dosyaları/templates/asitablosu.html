@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+<!-- resim ekleme ------------------------------>
+<style>
+body{
+    background-image:url(../static/images/asitablosu.jpg);
+    background-size:cover;
+    
+
+}
+</style>
+<!-- resim ekleme ------------------------------>
+
+<h3>Aşılar Tablosu</h3>
+
+
+
+{% if asi_tablosu %}
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Aşı ID</th>
+        <th scope="col">Olunan Aşı</th>
+        
+        
+        
+      </tr>
+    </thead>
+    <tbody>
+      {% for asi in asi_tablosu %}
+      <tr>
+        <th scope="row">{{asi.asi_id}}</th>
+        <td>{{asi.asi_ismi}}</td>
+        
+        
+        
+      </tr>
+      {% endfor %}
+      
+    </tbody>
+  </table>  
+{% else %}
+<!--calisanlar tablosunda eleman bulamazsa-->
+<div class = "alert alert-danger">Henüz eleman bulunmuyor...</div>    <!--uyarı yazısı-->
+{% endif %}
+
+
+
+
+
+
+
+
+{% endblock body %}
+
+
+
+
+
+
+
