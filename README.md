@@ -1,11 +1,11 @@
-# Koronavirus-Analiz-Sitesi
-## Python-flask tabanlı koronavirüs analiz sitesi  <br/>
+# Coronavirus Analysis - Management System
 
-#### Özet: Backend tarafında python-flask kullanılarak bir şirketin çalışanlarına ait tc kimlik numarası, kronik hastalık bilgisi, covid geçirme durumu,temaslı olma durumu gibi bilgiler MySQL veri tabanında tutuldu ve sql sorguları ile web sitesi içinde gerekli analiz sonuçları gösterildi. <br/> Böylece bir şirketin koronavirüs yönetim sitesi gerçeklendi.  <br/><br/><br/>
 
-#### Kayıt Olma ve Giriş Ekranları:
+#### In this web-based application, information such as chronic diseases and covid status about company employees were kept in the database and an interactive interface was designed.  <br/><br/><br/>
+
+#### Login And Registratin Screens:
 ![görsel1](https://github.com/huseyinturkmen06/Koronavirus-Analiz-Sitesi/blob/main/images/register.gif)  <br/>  <br/>
 
-#### Site İçi Gezinti:
+#### Summary:
 <img src="https://github.com/huseyinturkmen06/Koronavirus-Analiz-Sitesi/blob/main/images/son.gif"  />  <br/>
 
